@@ -22,7 +22,7 @@ public class PuzzleJava {
         }
         return Arrays.toString(arr);
     }
-    public String randomAlpha(String[] arr) {
+    public String randomAlpha(String[] arr) {git 
         List<String> alphaList = Arrays.asList(arr);
         Collections.shuffle(alphaList);
         arr = alphaList.toArray(new String[alphaList.size()]);
