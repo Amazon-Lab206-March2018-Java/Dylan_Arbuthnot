@@ -1,6 +1,6 @@
 public class Node {
-    public Integer value;
-    public Node next;
+    private Integer value;
+    private Node next;
     public Node() {
         this.value = null;
         this.next = null;
@@ -10,6 +10,9 @@ public class Node {
     }
     public void setVal(Integer val) {
         this.value = val;
+    }
+    public void setNext(Node node) {
+        this.next = node;
     }
     public Integer getVal() {
         return this.value;
