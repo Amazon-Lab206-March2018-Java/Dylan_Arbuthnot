@@ -14,7 +14,7 @@ public class Human {
 	}
 	public void attack(Human hum) {
 		Integer dmg = this.getStrength();
-		hum.setHealth(-dmg);
+		hum.adjustHealth(-dmg);
 		System.out.println(this.getName() + " attacked " + hum.getName() + " for " + dmg + " points of damage!");
 		System.out.println(hum.getName() + " has " + hum.getHealth() + " health left.");
 	}
@@ -46,6 +46,9 @@ public class Human {
 		this.intelligence = intelligence;
 	}
 	public void setHealth(Integer health) {
-		this.health += health;
+		this.health = health;
+	}
+	public void adjustHealth(Integer val) {
+		this.health += val;
 	}
 }
