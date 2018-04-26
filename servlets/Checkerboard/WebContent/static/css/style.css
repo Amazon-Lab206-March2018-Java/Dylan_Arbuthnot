@@ -1,0 +1,19 @@
+.row {
+	width: auto;
+}
+.even {
+	display: inline-block;
+	margin: 0px;
+	height: 30px;
+	width: 30px;
+	font-size: 30px;
+	background-color: red;
+}
+.odd {
+	display: inline-block;
+	margin: 0px;
+	height: 30px;
+	width: 30px;
+	font-size: 30px;
+	background-color: blue;
+}

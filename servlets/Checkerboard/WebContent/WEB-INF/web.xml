@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<servlet>
+		<servlet-name>Checkerboard</servlet-name>
+		<servlet-class>com.darbuth.checkerboard.Checkerboard</servlet-class>
+		<description>Index for checkerboard, which generates a checkerboard based off of parameters passed into the URL</description>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Checkerboard</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Draw</servlet-name>
+		<jsp-file>/Draw.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Draw</servlet-name>
+		<url-pattern>/Draw</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/static/*</url-pattern>
+	</servlet-mapping>
+</web-app>
