@@ -28,7 +28,7 @@ public class HomePage extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("/static/index.html");
+		RequestDispatcher view = request.getRequestDispatcher("index.html");
 		view.forward(request,  response);
 	}
 
