@@ -11,12 +11,10 @@
 		<% Integer height = 0;
 		   Integer width = 0;%>
 		<% if(request.getParameter("height") != null) { %>
-			<% height = Integer.valueOf(request.getParameter("height").trim()); 
-			   System.out.println(height);%>
+			<% height = Integer.valueOf(request.getParameter("height").trim()); %>
 		<% } %>
 		<% if(request.getParameter("width") != null) { %>
-			<% width = Integer.valueOf(request.getParameter("width").trim()); 
-			   System.out.println(height);%>
+			<% width = Integer.valueOf(request.getParameter("width").trim()); %>
 		<% } %>
 		<h1>Checkerboard: <%=width %>w x <%=height %>h</h1>
 		<% for(int i = 0; i < height; i++) { %>
