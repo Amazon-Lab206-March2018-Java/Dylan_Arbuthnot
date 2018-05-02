@@ -36,6 +36,6 @@ public class CounterController {
 	@RequestMapping("/reset")
 	public String reset(HttpSession session) {
 		session.setAttribute("counter", 0);
-		return "counter.jsp";
+		return "redirect:/counter";
 	}
 }
