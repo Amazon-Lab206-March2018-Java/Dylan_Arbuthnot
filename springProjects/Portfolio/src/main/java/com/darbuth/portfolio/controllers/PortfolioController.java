@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PortfolioController {
 	@RequestMapping("/")
 	public String index() {
+		System.out.println("hello");
 		return "forward:/index.html";
 	}
 	@RequestMapping("/about")
