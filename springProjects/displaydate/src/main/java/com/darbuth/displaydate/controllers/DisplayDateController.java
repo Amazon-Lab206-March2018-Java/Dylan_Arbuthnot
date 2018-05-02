@@ -3,6 +3,8 @@ package com.darbuth.displaydate.controllers;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class DisplayDateController {
 	@RequestMapping("/")
-	public String index(Model model) {
+	public String index(Model model, HttpSession session) {
 		return "index.jsp";
 	}
 	@RequestMapping("/date")
