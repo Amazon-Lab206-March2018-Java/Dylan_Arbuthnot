@@ -12,7 +12,7 @@
 		<form action="Players" method="POST">
 			<label for="first_name">First Name: </label><input type="text" name="first_name" placeholder="Player first name here"><br>
 			<label for="last_name">Last Name: </label><input type="text" name="last_name" placeholder="Play last name here"><br>
-			<label for="age">Age: </label><input type="text" name="age" placeholder="Player name here"><br>
+			<label for="age">Age: </label><input type="number" name="age" placeholder="Player name here"><br>
 			<input type="submit" value="Create Player">
 		</form>
 	</body>

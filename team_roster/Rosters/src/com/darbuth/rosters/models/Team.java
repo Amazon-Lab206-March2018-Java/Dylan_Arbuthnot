@@ -29,6 +29,10 @@ public class Team {
 	public void addPlayer(Player player) {
 		this.players.add(player);
 	}
+	public void deletePlayer(Integer player_id) {
+		Player player = Player.findPlayer(player_id);
+		this.players.remove(player);
+	}
 	public static Team findTeam(Integer id) {
 		Team t = null;
 		for(Team te : teams) {
@@ -37,5 +41,9 @@ public class Team {
 			}
 		}
 		return t;
+	}
+	public static void deleteTeam(Integer id) {
+		Team team = findTeam(id);
+		teams.remove(team);
 	}
 }

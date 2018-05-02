@@ -47,8 +47,4 @@ public class Player {
 		}
 		return p;
 	}
-	public static void deletePlayer(Player player) {
-		player = null;
-		System.gc();
-	}
 }

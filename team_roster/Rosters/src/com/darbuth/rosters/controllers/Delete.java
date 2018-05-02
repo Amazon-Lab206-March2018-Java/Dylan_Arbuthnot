@@ -1,8 +1,6 @@
 package com.darbuth.rosters.controllers;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,16 +11,16 @@ import javax.servlet.http.HttpSession;
 import com.darbuth.rosters.models.Team;
 
 /**
- * Servlet implementation class Teams
+ * Servlet implementation class Delete
  */
-@WebServlet("/Teams")
-public class Teams extends HttpServlet {
+@WebServlet("/Delete")
+public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Teams() {
+    public Delete() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,23 +30,23 @@ public class Teams extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		Boolean create_team = Boolean.valueOf(request.getParameter("create_team"));
-		request.setAttribute("create_team", create_team);
-		if (create_team == false) {
-			Integer team_id = Integer.valueOf(request.getParameter("id"));
-			Team t = Team.findTeam(team_id);
-			session.setAttribute("team", t);
+		if (request.getParameter("player_id") != null) {
+			Integer player_id = Integer.valueOf(request.getParameter("player_id"));
+			Team team = (Team) session.getAttribute("team");
+			team.deletePlayer(player_id);
+		} else if (request.getParameter("team_id") != null) {
+			Integer team_id = Integer.valueOf(request.getParameter("team_id"));
+			Team.deleteTeam(team_id);
 		}
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/team.jsp");
-		view.forward(request, response);
+		response.sendRedirect("Home");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		new Team(request.getParameter("team_name"));
-		response.sendRedirect("Home");
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

@@ -36,7 +36,7 @@
 							<td><c:out value="${player.getFirstName()}"/></td>
 							<td><c:out value="${player.getLastName()}"/></td>
 							<td><c:out value="${player.getAge()}"/></td>
-							<td><a href="">Delete</a></td>
+							<td><a href="Delete?player_id=<c:out value="${player.getId()}"/>">Delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
