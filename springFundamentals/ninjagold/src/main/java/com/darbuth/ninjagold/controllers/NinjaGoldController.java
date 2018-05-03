@@ -24,7 +24,12 @@ public class NinjaGoldController {
 			session.setAttribute("log", new ArrayList<AbstractMap.SimpleEntry<String, String>>());
 		}
 		if ((Integer) session.getAttribute("gold") < -50) {
-			return "redirect:/jail";
+			String timestamp = new SimpleDateFormat("'('MMMM d yyyy hh:mm a')'").format(new Date());
+			ArrayList<AbstractMap.SimpleEntry<String, String>> log = (ArrayList<AbstractMap.SimpleEntry<String, String>>) session.getAttribute("log");
+			AbstractMap.SimpleEntry<String, String> activity = new AbstractMap.SimpleEntry<String, String>("orange",
+					"You had too many delinquent loans and have been taken to debtor's jail. " + timestamp);
+			log.add(0, activity);
+			return "jail.jsp";
 		}
 		return "index.jsp";
 	}
@@ -150,14 +155,5 @@ public class NinjaGoldController {
 	public String reset(HttpSession session) {
 		session.invalidate();
 		return "redirect:/";
-	}
-	@RequestMapping("/jail")
-	public String jail(HttpSession session) {
-		String timestamp = new SimpleDateFormat("'('MMMM d yyyy hh:mm a')'").format(new Date());
-		ArrayList<AbstractMap.SimpleEntry<String, String>> log = (ArrayList<AbstractMap.SimpleEntry<String, String>>) session.getAttribute("log");
-		AbstractMap.SimpleEntry<String, String> activity = new AbstractMap.SimpleEntry<String, String>("orange",
-				"You had too many delinquent loans and have been taken to debtor's jail. " + timestamp);
-		log.add(0, activity);
-		return "jail.jsp";
 	}
 }
