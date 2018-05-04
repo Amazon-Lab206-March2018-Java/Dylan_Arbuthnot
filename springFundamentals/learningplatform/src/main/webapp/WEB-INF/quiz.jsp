@@ -36,17 +36,19 @@
 					<div class="card-content">
 						<span class="card-title"><c:out value="${content}"/></span>
 						<div class="switch">
-							<form action="">
+							<c:out value="${quiz.getKey()}"/>
+							<form action="#">
+							<c:forEach var="ans" items="${quiz.getValue()}">	
 								<p>
 							      <label>
-							        <input type="checkbox" id="complete"/>
-							        <span>Assignment Completed</span>
+							        <input type="checkbox" id="<c:out value="${ans}"/>"/>
+							        <span><c:out value="${ans}"/></span>
 							      </label>
 							    </p>
+							</c:forEach>
+							<input type="submit" value="Submit Quiz">
 							</form>
 						</div>
-						
-						<p>The purpose of this assignment is to get experience with <c:out value="${content}"/></p>
 					</div>
 				</div>
 				<div class="col s2"></div>

@@ -11,20 +11,21 @@
 	<body>
 		<div class="row">
 			<div class="container">
-				<div class="col s2"></div>
+				<div class="col s1"></div>
 				<div class="col s5">
 					<h1 class="categories-container pin-top"><c:out value="${topic}"/></h1>
 				</div>
-				<div class="col s3">
+				<div class="col s6">
 					<ul class="list-inline">
 						<li><a href="/m/38/0553/0733">Set up</a></li>
 						<li><a href="/m/38/0483/0345">Forms</a></li>
 						<li><a href="/m/38/0553/0342">Cards</a></li>
+						<li><a href="/m/38/0568/0262">Quiz</a></li>
 						<li><a href="/m/26/0553/0348">Advanced</a></li>
 						<li><a href="/m/26/0483/2342">Binary</a></li>
+						<li><a href="/m/26/0568/0143">Advanced Quiz</a></li>
 					</ul>
 				</div>
-				<div class="col s2"></div>
 			</div>
 		</div>
 		<div class="row">
