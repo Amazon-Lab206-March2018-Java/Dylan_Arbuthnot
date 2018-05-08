@@ -1,14 +1,12 @@
-package com.darbuth.languages.services;
+package com.darbuth.languagesredux.services;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.darbuth.languages.models.Language;
-import com.darbuth.languages.repositories.LanguageRepository;
+import com.darbuth.languagesredux.models.Language;
+import com.darbuth.languagesredux.repositories.LanguageRepository;
 
 @Service
 public class LanguageService {
@@ -36,7 +34,6 @@ public class LanguageService {
 	
 	public void updateLanguage(Language lang) {
 		languageRepository.save(lang);
-		System.out.println(lang.getCurrentVersion());
 		System.out.println(lang.getId());
 	}
 	
