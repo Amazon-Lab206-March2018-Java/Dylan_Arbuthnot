@@ -74,12 +74,10 @@ public class Languages {
 	public String updateLanguage(@Valid @ModelAttribute("language") Language language,
 			BindingResult result,
 			@PathVariable Long id) {
-		System.out.println(id);
-		System.out.println(language.getId());
 		if (result.hasErrors()) {
 			return "updateLang.jsp";
 		} else {
-			System.out.println(id);
+			language.setId(id);
 			languageService.updateLanguage(language);
 			return "redirect:/languages/{id}";
 		}
