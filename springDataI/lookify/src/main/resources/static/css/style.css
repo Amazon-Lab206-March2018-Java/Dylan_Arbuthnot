@@ -50,6 +50,7 @@ h4 {
 }
 table {
     border-spacing: 10px;
+    width: 50%;
 }
 input {
     padding: 3px;
@@ -91,11 +92,12 @@ a:hover {
 }
 .submit {
     margin-top: 5px;
-    padding: 5px;
+    padding: 7px;
+    font-size: 12pt;
     color: #FFF;
     background: linear-gradient(#00798C,#30638E);
+    border-radius: 2px;
     border: none;
-    border-radius: 5px;
 }
 .header {
     text-align: right;

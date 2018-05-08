@@ -32,16 +32,16 @@
 					<c:otherwise>
 						<table class="center">
 							<thead>
-								<th>Name</th>
+								<th>Title</th>
 								<th>Rating</th>
 								<th>Actions</th>
 							</thead>
 							<tbody>
 								<c:forEach var="song" items="${results}">
 									<tr>
-										<td><a href="#"><c:out value="${song.getName()}"/></a></td>
+										<td><a href="/songs/<c:out value="${song.getId()}"/>"><c:out value="${song.getName()}"/></a></td>
 										<td><c:out value="${song.getRating()}"/> / 10</td>
-										<td><a href="songs/delete/<c:out value="${song.getId()}"/>">Delete</a></td>
+										<td><a href="/songs/edit/<c:out value="${song.getId()}"/>">Edit</a>&nbsp;|&nbsp;<a href="songs/delete/<c:out value="${song.getId()}"/>">Delete</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

@@ -87,4 +87,30 @@ public class Songs {
 		songService.destroySong(id);
 		return "redirect:/dashboard";
 	}
+	
+	@RequestMapping("/songs/edit/{id}")
+	public String update(@PathVariable("id") Long id,
+			Model model) {
+		Song song = songService.findById(id);
+		if (song != null) {
+			model.addAttribute("song", song);
+		} else {
+			return "redirect:/dashboard";
+		}
+		return "edit.jsp";
+	}
+	
+	@PostMapping("/songs/edit/{id}")
+	public String save(@Valid @ModelAttribute("song") Song song,
+			BindingResult result,
+			@PathVariable("id") Long id) {
+		System.out.println(id);
+		if (result.hasErrors()) {
+			return "edit.jsp";
+		} else {
+			song.setId(id);
+			songService.updateSong(song);
+			return "redirect:/songs/{id}";
+		}
+	}
 }

@@ -37,7 +37,10 @@ public class SongService {
 	}
 	
 	public void addSong(Song song) {
-		System.out.println(song.getName());
+		songRepo.save(song);
+	}
+	
+	public void updateSong(Song song) {
 		songRepo.save(song);
 	}
 	

@@ -30,7 +30,7 @@
 						<c:forEach var="song" items="${results}">
 							<tr>
 								<td><c:out value="${results.indexOf(song) + 1}"/></td>
-								<td><a href="/songs/<c:out value="${song.getId()}"/>"><c:out value="${song.getName()}"/></a> - <c:out value="${song.getArtist()}"/></td>
+								<td><a href="/songs/<c:out value="${song.getId()}"/>"><c:out value="${song.getName()}"/></a> - <a href="/search/?artist=<c:out value="${song.getArtist()}"/>"><c:out value="${song.getArtist()}"/></a></td>
 								<td><c:out value="${song.getRating()}"/> / 10</td>
 							</tr>
 						</c:forEach>

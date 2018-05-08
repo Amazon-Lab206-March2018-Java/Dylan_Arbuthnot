@@ -26,19 +26,34 @@
 			<div class="col-8 white">
 				<h1 class="center-text">Create a New Song</h1>
 				<form:form method="POST" action="/songs/new" modelAttribute="song">
-				    <form:label path="name">Name
-				    <span class="error"><form:errors path="name"/></span>
-				    <form:input path="name" class="full"/></form:label>
-				    
-				    <form:label path="artist">Artist
-				    <span class="error"><form:errors path="artist"/></span>
-				    <form:input path="artist" class="full"/></form:label>
-				    
-				    <form:label path="rating">Rating
-				    <span class="error"><form:errors path="rating"/></span>
-				    <form:input path="rating" class="full" type="number"/></form:label>
-				    
-				    <input type="submit" value="Submit" class="submit"/>
+					<table class="center">
+						<tbody>
+							<tr>
+								<td><form:label path="name" class="label">Title
+									<span class="error"><form:errors path="name"/></span></td>
+							</tr>
+							<tr>
+								<td><form:input path="name" class="full"/></form:label></td>
+							</tr>
+							<tr>
+								<td><form:label path="artist" class="label">Artist
+									<span class="error"><form:errors path="artist"/></span></td>
+							</tr>
+							<tr>
+								<td><form:input path="artist" class="full"/></form:label></td>
+							</tr>
+							<tr>
+								<td><form:label path="rating" class="label">Rating
+									<span class="error"><form:errors path="rating"/></span></td>
+							</tr>
+							<tr>
+								<td><form:input path="rating" class="full" type="number"/></form:label></td>
+							</tr>
+							<tr>
+								<td><input type="submit" value="Submit" class="submit"/></td>
+							</tr>
+						</tbody>
+					</table>
 				</form:form>
 			</div>
 			<div class="col-2"></div>
