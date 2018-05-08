@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="col-2"></div>
 			<div class="col-8 white">
-				<h1 class="center-text">Songs by <c:out value="${artist}"/></h1>
+				<h1 class="center-text">Top 10 Songs</h1>
 				<table class="center">
 					<tbody>
 						<c:forEach var="song" items="${results}">

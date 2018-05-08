@@ -28,7 +28,7 @@
 					<thead>
 						<th>Title</th>
 						<th>Artist</th>
-						<th>Rating</th>
+						<th>Rating (1-10)</th>
 						<th>Actions</th>
 					</thead>
 					<tbody>
@@ -36,7 +36,7 @@
 							<tr>
 								<td><a href="/songs/<c:out value="${song.getId()}"/>"><c:out value="${song.getName()}"/></a></td>
 								<td><a href="/search/?artist=<c:out value="${song.getArtist()}"/>"><c:out value="${song.getArtist()}"/></td>
-								<td><c:out value="${song.getRating()}"/> / 10</td>
+								<td><c:out value="${song.getRating()}"/></td>
 								<td><a href="/songs/edit/<c:out value="${song.getId()}"/>">Edit</a>&nbsp;|&nbsp;<a href="/songs/delete/<c:out value="${song.getId()}"/>">Delete</a></td>
 							</tr>
 						</c:forEach>
