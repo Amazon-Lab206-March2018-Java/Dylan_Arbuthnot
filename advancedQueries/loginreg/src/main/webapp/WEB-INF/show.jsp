@@ -10,7 +10,6 @@
 	</head>
 	<body>
 	    <h1>Welcome <c:out value="${currentUser.firstName}"/></h1>
-	    
 	    <table>
 	    	<tbody>
 	    		<tr>
@@ -35,7 +34,6 @@
 	    		</tr>
 	    	</tbody>
 	    </table>
-	    
 	    <form id="logoutForm" method="POST" action="/logout">
 	        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	        <input type="submit" value="Logout!" />

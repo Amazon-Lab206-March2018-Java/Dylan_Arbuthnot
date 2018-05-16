@@ -9,6 +9,8 @@ import com.darbuth.loginreg.models.Role;
 
 @Repository
 public interface RoleRepo extends CrudRepository<Role, Long> {
+
 	List<Role> findAll();
+	
 	List<Role> findByName(String name);
 }

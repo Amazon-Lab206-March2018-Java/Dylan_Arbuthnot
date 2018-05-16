@@ -1,6 +1,8 @@
 package com.darbuth.loginreg.services;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
@@ -8,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.darbuth.loginreg.models.Role;
 import com.darbuth.loginreg.models.User;
 import com.darbuth.loginreg.repositories.RoleRepo;
 import com.darbuth.loginreg.repositories.UserRepo;
@@ -27,6 +30,34 @@ public class UserService  implements ApplicationListener<AuthenticationSuccessEv
 		this.bCryptPasswordEncoder = bCryptPasswordEncoder;
 	}
 	
+	public List<User> findAllUsers() {
+		return ur.findAllUsers();
+	}
+	
+	public Role findRoleByName(String name) {
+		if (rr.findByName(name).size() == 0) {
+			return null;
+		} else {
+			return rr.findByName(name).get(0);
+		}
+	}
+	
+	public User findUserById(Long id) {
+		Optional<User> user = ur.findById(id);
+		if (user != null) {
+			return user.get();
+		}
+		return null;
+	}
+	
+	public User findUserByUsername(String username) {
+		return ur.findByUsername(username);
+	}
+	
+	public void deleteUserById(Long id) {
+		ur.deleteUserById(id);
+	}
+	
 	public void saveWithUserRole(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setRoles(rr.findByName("ROLE_USER"));
@@ -37,10 +68,6 @@ public class UserService  implements ApplicationListener<AuthenticationSuccessEv
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setRoles(rr.findByName("ROLE_ADMIN"));
 		ur.save(user);
-	}
-	
-	public User findByUsername(String username) {
-		return ur.findByUsername(username);
 	}
 
 	@Override
