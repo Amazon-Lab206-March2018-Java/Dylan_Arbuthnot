@@ -42,6 +42,7 @@ public class Events {
 		model.addAttribute("inStatePages", inStateEvents.getTotalPages());
 		model.addAttribute("outOfStateEvents", outOfStateEvents);
 		model.addAttribute("outOfStatePages", outOfStateEvents.getTotalPages());
+		model.addAttribute("usersEvents", as.findAllUsersEvents());
 		model.addAttribute("states", states);
 		return model;
 	}

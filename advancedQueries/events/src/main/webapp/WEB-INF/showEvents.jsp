@@ -47,9 +47,9 @@
 										<c:when test="${user.getEventsCreated().contains(event)}">
 											<td><a href='/events/update/<c:out value="${event.getId()}"/>'>Edit</a> | <a href='/events/delete/<c:out value="${event.getId()}"/>'>Delete</a></td>
 										</c:when>
-										<c:when test="${user.getUsersEvents().size() > 0}">
-											<c:forEach var="userEvent" items="${user.getUsersEvents()}">
-												<c:if test="${userEvent.getEvent() == event}">
+										<c:when test="${event.getUsersEvents().size() > 0}">
+											<c:forEach var="userEvent" items="${event.getUsersEvents()}">
+												<c:if test="${userEvent.getUser() == user}">
 													<td>Joining | <a href="/events/cancel/${event.getId()}">Cancel</a></td>
 												</c:if>
 											</c:forEach>
@@ -62,14 +62,21 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<div class="form-row text-center">
-					<c:forEach begin="1" end="${inStatePages}" var="index">
-						<form action="/events" method="post">
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<input type="hidden" value='<c:out value="${index}"/>' name="inStateIndex">
-							<input type="submit" value='<c:out value="${index}"/>' class="btn">
-						</form>
-					</c:forEach>
+					<div class="col-1 input-group">
+						<c:forEach begin="1" end="${inStatePages}" var="index">
+							<form action="/events" method="post" class="form-inline">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+								<input type="hidden" value='<c:out value="${index}"/>' name="inStateIndex">
+								<c:choose>
+									<c:when test="${inStatePage == index}">
+										<input type="submit" value='<c:out value="${index}"/>' class="btn btn-info">
+									</c:when>
+									<c:otherwise>
+										<input type="submit" value='<c:out value="${index}"/>' class="btn">
+									</c:otherwise>
+								</c:choose>
+							</form>
+						</c:forEach>
 					</div>
 				</div>
 				<div class="col-md-1"></div>
@@ -97,9 +104,9 @@
 										<c:when test="${user.getEventsCreated().contains(event)}">
 											<td><a href='/events/update/<c:out value="${event.getId()}"/>'>Edit</a> | <a href="">Delete</a></td>
 										</c:when>
-										<c:when test="${user.getUsersEvents().size() > 0}">
-											<c:forEach var="userEvent" items="${user.getUsersEvents()}">
-												<c:if test="${userEvent.getEvent() == event}">
+										<c:when test="${event.getUsersEvents().size() > 0}">
+											<c:forEach var="userEvent" items="${event.getUsersEvents()}">
+												<c:if test="${userEvent.getUser() == user}">
 													<td>Joining | <a href="/events/cancel/${event.getId()}">Cancel</a></td>
 												</c:if>
 											</c:forEach>
@@ -112,14 +119,21 @@
 							</c:forEach>
 						</tbody>
 					</table>
-					<div class="input-group mb-2">
-					<c:forEach begin="1" end="${outOfStatePages}" var="index">
-						<form action="/events" method="post">
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<input type="hidden" value='<c:out value="${index}"/>' name="outOfStateIndex">
-							<input type="submit" value='<c:out value="${index}"/>' class="btn">
-						</form>
-					</c:forEach>
+					<div class="col-1 input-group">
+						<c:forEach begin="1" end="${outOfStatePages}" var="index">
+							<form action="/events" method="post">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+								<input type="hidden" value='<c:out value="${index}"/>' name="outOfStateIndex">
+								<c:choose>
+									<c:when test="${outOfStatePage == index}">
+										<input type="submit" value='<c:out value="${index}"/>' class="btn btn-info">
+									</c:when>
+									<c:otherwise>
+										<input type="submit" value='<c:out value="${index}"/>' class="btn">
+									</c:otherwise>
+								</c:choose>
+							</form>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

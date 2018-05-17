@@ -1,5 +1,7 @@
 package com.darbuth.events.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -15,6 +17,9 @@ import com.darbuth.events.models.UserEvent;
 @Repository
 public interface UserEventRepo extends PagingAndSortingRepository<UserEvent, Long>, CrudRepository<UserEvent, Long> {
 
+	@Query("SELECT ue from UserEvent ue")
+	List<UserEvent> findAll();
+	
 	@Modifying
 	@Query("DELETE from UserEvent ue WHERE user = ?1 AND event = ?2")
 	void deleteUserEventByUserAndEvent(User user, Event event);

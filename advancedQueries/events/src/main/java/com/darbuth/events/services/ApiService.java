@@ -102,6 +102,10 @@ public class ApiService {
 		uer.deleteUserEventByUserAndEvent(user, event);
 	}
 	
+	public List<UserEvent> findAllUsersEvents() {
+		return uer.findAll();
+	}
+	
 	public void saveMessage(Message message) {
 		mr.save(message);
 	}
